@@ -46,3 +46,56 @@ input[type="submit"] {
 ```
 Jadi, ketika kamu menambahkan semua ini ke halaman HTML-nya, kamu akan mendapatkan halaman login yang tampak seperti kartu dan berada di tengah layar! Semoga penjelasan ini membantu kamu memahaminya dengan lebih baik!
 
+Hasil akhir semua source code css:
+```css
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    width: 100%;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+```
+
+Kembali ke [HTML](../HTML/Materi.md) Lanjut ke [JavaScript](../JavaScipt/Materi.md)
