@@ -50,3 +50,5 @@ Jadi ketika menggabungkan semuanya, hasil lengkapnya seperti ini:
 ```
 Dalam contoh di atas, saat tombol "Login" ditekan, informasi yang dimasukkan oleh pengguna (nama pengguna dan kata sandi) akan dikirimkan ke submit.php untuk diproses lebih lanjut. submit.php adalah file PHP yang harus kamu buat untuk menangani data yang dikirimkan dari formulir login ini.
 
+Nah jadi gimana? udah bisa bikin halaman loginnya? tapi bosenin banget kan ya? sekarang kita coba tambahkan cssnya. [LANJUT CSS :D](../CSS/materi.md)
+
