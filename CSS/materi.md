@@ -97,5 +97,6 @@ input[type="submit"] {
     cursor: pointer;
 }
 ```
-
+Jadi hasil akhirnya akan seperti ini di website
+![alt text](image.png)
 Kembali ke [HTML](../HTML/Materi.md) Lanjut ke [JavaScript](../JavaScipt/Materi.md)
