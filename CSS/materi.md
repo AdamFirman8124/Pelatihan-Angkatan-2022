@@ -152,5 +152,8 @@ input[type="password"] {
 Jadi hasil akhirnya akan seperti ini di website
 ![alt text](image.png)
 
+Ketika cursor diarahkan ke tulisan "Login" atau "Sign Up" maka warna dari backgroundnya akan menjadi lebih gelap seperti contoh dibawah ketika cursor diarahkan ke bagian Login maka warnanya sedikit lebih gelap daripada Sign Up
+![alt text](image-1.png)
+
 Setelah mendefinisikan gaya untuk tampilan halaman web menggunakan CSS, kita bisa menggunakan JavaScript untuk menambahkan fungsionalitas interaktif ke halaman tersebut. Dalam halaman login, kita bisa menggunakan JavaScript untuk memvalidasi input pengguna sebelum mengirimkan formulir.
 Kembali ke [HTML](../HTML/Materi.md) Lanjut ke [JavaScript](../JavaScipt/Materi.md)
