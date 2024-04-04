@@ -48,7 +48,7 @@ Jadi ketika menggabungkan semuanya, hasil lengkapnya seperti ini:
 </body>
 </html>
 ```
-Dan hasil akhirnya akan menjadi seperti ini
+Dan hasil akhirnya akan menjadi seperti ini:
 ![Gambar Login Page](image.png)
 
 Dalam contoh di atas, saat tombol "Login" ditekan, informasi yang dimasukkan oleh pengguna (nama pengguna dan kata sandi) akan dikirimkan ke submit.php untuk diproses lebih lanjut. submit.php adalah file PHP yang harus kamu buat untuk menangani data yang dikirimkan dari formulir login ini.
