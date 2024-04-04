@@ -27,7 +27,7 @@ Apabila terjadi error seperti dibawah ini:
 
 Buka file Explorer, navigasi ke C: >> xampp >> php, lalu buka file php.ini.
 
-![alt text](image-3.png)
+![alt text](image-8.png)
 
 Ketik Ctrl + F untuk membuka Find Box.
 
