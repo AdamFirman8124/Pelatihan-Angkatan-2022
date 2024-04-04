@@ -4,10 +4,10 @@ Untuk menginstall Laravel 10, kamu harus menginstall aplikasi in iterlebih dahul
 
 Composer-Setup.exe
 
-![alt text](<image1.jpg>)
-![alt text](<image2.jpg>)
-![alt text](<image3.jpg>)
-![alt text](<image4.jpg>)
+![alt text](<WhatsApp Image 2024-04-04 at 23.33.05_34312928.jpg>)
+![alt text](<WhatsApp Image 2024-04-04 at 23.33.21_98587363.jpg>)
+![alt text](<WhatsApp Image 2024-04-04 at 23.33.35_a8ada862.jpg>)
+![alt text](<WhatsApp Image 2024-04-04 at 23.33.45_aab02019.jpg>)
 
 Setelah selesai instalasi, buka Command Prompt lalu ketikkan kode ini:
 
@@ -74,4 +74,4 @@ Lalu copy-paste "http://127.0.0.1:8000" dari Command Prompt ke browser.
 
 ![alt text](image-7.png)
 
-![alt text](image-11.png)
+![alt text](image-10.png)
