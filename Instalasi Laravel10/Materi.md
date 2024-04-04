@@ -74,4 +74,4 @@ Lalu copy-paste "http://127.0.0.1:8000" dari Command Prompt ke browser.
 
 ![alt text](image-7.png)
 
-![alt text](image-10.png)
+![alt text](image-11.png)
