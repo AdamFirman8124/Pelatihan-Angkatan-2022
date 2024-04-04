@@ -17,6 +17,7 @@ function validateForm() {
     return true;
 }
 ```
+
 **1. function validateForm()**: Ini adalah sebuah fungsi JavaScript bernama validateForm(). Fungsi ini bertujuan untuk memeriksa apakah formulir login telah diisi dengan benar sebelum data dikirimkan.
 
 **2. var username = document.getElementById("username").value;**: Dalam baris ini, kita mengambil nilai yang dimasukkan oleh pengguna ke dalam kotak teks username. document.getElementById("username") mengacu pada elemen HTML dengan ID "username", yang biasanya adalah kotak input untuk username dalam formulir.
