@@ -1,12 +1,35 @@
 # Instalasi Laravel 10
 
-Bayangkan kamu ingin membuat sebuah kertas kosong di internet yang bisa digunakan orang untuk masuk ke situs webmu. Ini disebut sebagai halaman login.
+Untuk menginstall Laravel 10, kamu harus menginstall aplikasi in iterlebih dahulu:
 
+Composer-Setup.exe
 
-### 1 Tulis "Login" Dibagian atas halaman
-```html
-<h1>Login</h1>
+![alt text](<WhatsApp Image 2024-04-04 at 23.33.05_34312928.jpg>)
+![alt text](<WhatsApp Image 2024-04-04 at 23.33.21_98587363.jpg>)
+![alt text](<WhatsApp Image 2024-04-04 at 23.33.35_a8ada862.jpg>)
+![alt text](<WhatsApp Image 2024-04-04 at 23.33.45_aab02019.jpg>)
+
+Setelah selesai instalasi, buka Command Prompt lalu ketikkan kode ini:
+
 ```
+cd C:\xampp\htdocs
+```
+Lalu jalankan kode ini:
+```
+composer create-project laravel/laravel:^10.0 example-app
+```
+"example-app" pada kode diatas merupakan nama Folder yang akan dibuat, nama foldernya bisa apa saja selama kata nya tidak terpisah oleh space/spasi
+
+![alt text](<WhatsApp Image 2024-04-04 at 23.35.47_5b455dee.jpg>)
+
+Apabila terjadi error seperti dibawah ini:
+![alt text](image.png)
+
+maka buka 
+ketik
+![alt text](image-1.png)
+Hapus titik koma (;) pada bagian kanannya "extension=zip", sehingga jadi seperti ini:
+![alt text](image-2.png)
 
 ### 2 Tambahkan dua kotak untuk mereka menulis nama pengguna dan kata sandi
 ```html
