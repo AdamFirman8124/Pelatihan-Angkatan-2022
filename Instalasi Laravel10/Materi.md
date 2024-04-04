@@ -25,56 +25,53 @@ composer create-project laravel/laravel:^10.0 example-app
 Apabila terjadi error seperti dibawah ini:
 ![alt text](image.png)
 
-maka buka 
-ketik
+Buka file Explorer, navigasi ke C: >> xampp >> php, lalu buka file php.ini.
+
+![alt text](image-3.png)
+
+Ketik Ctrl + F untuk membuka Find Box.
+
 ![alt text](image-1.png)
-Hapus titik koma (;) pada bagian kanannya "extension=zip", sehingga jadi seperti ini:
+
+Hapus titik koma (;) pada bagian kanannya "extension=zip", Sehingga jadi seperti ini:
+
 ![alt text](image-2.png)
 
-### 2 Tambahkan dua kotak untuk mereka menulis nama pengguna dan kata sandi
-```html
-<label for="username">Username:</label>
-<input type="text" id="username" name="username"><br><br>
+Kemudian Save file lalu close.
 
-<label for="password">Password:</label>
-<input type="password" id="password" name="password"><br><br>
+Setelah itu, jalankan kembali kode ini di Command Prompt:
+
+```
+cd C:\xampp\htdocs
+```
+Lalu jalankan kode ini:
+```
+composer create-project laravel/laravel:^10.0 example-app
 ```
 
-### 3 Tambahkan tombol "Login" yang ketika ditekan akan mengirimkan informasi tersebut
-```html
-<input type="submit" value="Login">
+Setelah kode di jalankan, maka tampilan Command Prompt akan menjadi seperti ini:
+
+![alt text](image-4.png)
+
+Lalu tunggu proses hingga mencapai akhir.
+
+![alt text](image-5.png)
+
+Setelah itu, masukkan kode ini di Command Prompt:
+
+```
+cd example-app
+```
+```
+php artisan serve
 ```
 
-Jadi ketika menggabungkan semuanya, hasil lengkapnya seperti ini:
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Login Page</title>
-</head>
-<body>
+Tunggu hingga tampilan menjadi seperti ini:
 
-<h1>Login</h1>
+![alt text](image-6.png)
 
-<form action="submit.php" method="POST">
-    <label for="username">Username:</label><br>
-    <input type="text" id="username" name="username"><br><br>
+Lalu copy-paste "http://127.0.0.1:8000" dari Command Prompt ke browser.
 
-    <label for="password">Password:</label><br>
-    <input type="password" id="password" name="password"><br><br>
+![alt text](image-7.png)
 
-    <input type="submit" value="Login">
-</form>
-
-</body>
-</html>
-```
-Dan hasil akhirnya akan menjadi seperti ini
-![Gambar Login Page](image.png)
-
-Dalam contoh di atas, saat tombol "Login" ditekan, informasi yang dimasukkan oleh pengguna (nama pengguna dan kata sandi) akan dikirimkan ke submit.php untuk diproses lebih lanjut. submit.php adalah file PHP yang harus kamu buat untuk menangani data yang dikirimkan dari formulir login ini.
-
-Nah jadi gimana? udah bisa bikin halaman loginnya? tapi bosenin banget kan ya? sekarang kita coba tambahkan cssnya. [LANJUT CSS :D](../CSS/materi.md)
-
+![alt text](image-10.png)
