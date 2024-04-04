@@ -23,7 +23,7 @@ composer create-project laravel/laravel:^10.0 example-app
 ![alt text](<WhatsApp Image 2024-04-04 at 23.35.47_5b455dee.jpg>)
 
 Apabila terjadi error seperti dibawah ini:
-![alt text](image.png)
+![alt text](image-3.png)
 
 Buka file Explorer, navigasi ke C: >> xampp >> php, lalu buka file php.ini.
 
@@ -74,4 +74,4 @@ Lalu copy-paste "http://127.0.0.1:8000" dari Command Prompt ke browser.
 
 ![alt text](image-7.png)
 
-![alt text](image-10.png)
+![alt text](image-11.png)
