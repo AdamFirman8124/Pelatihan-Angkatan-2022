@@ -57,6 +57,14 @@ Lalu jalankan kode ini:
 ```
 composer create-project laravel/laravel:^10.0 example-app
 ```
+atau
+```
+composer create-project laravel/laravel="10.2" example-app
+```
+atau juga bisa
+```
+laravel new example-app
+```
 
 Setelah kode di jalankan, maka tampilan Command Prompt akan menjadi seperti ini:
 
@@ -71,6 +79,7 @@ Setelah itu, masukkan kode ini di Command Prompt:
 ```
 cd example-app
 ```
+Ingat untuk "example-app" itu hanya sebuah nama folder jadi diingat ingat sebelumnya nama folder kalian itu apa
 ```
 php artisan serve
 ```
@@ -85,7 +94,7 @@ Lalu copy-paste "http://127.0.0.1:8000" dari Command Prompt ke browser.
 
 ![alt text](image-11.png)
 
-
+[LANJUT LOGIN DAN REGISTER](https://)
 # Sekarang kita mencoba untuk membuat Login dan Register di Laravel 10
 
 Step 1: Buka kembali website Laravel lalu cari Starter Kits lalu Breeze and Blade
@@ -266,3 +275,5 @@ Ketika sudah muncul link nya kalian bisa klik link tersebut dan menuju kesebuah 
 ![alt text](image-24.png)
 
 Tunggu update selanjutnya ya :D
+
+[def]: Pemateri/
