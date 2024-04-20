@@ -1,49 +1,30 @@
-
 # Sekarang kita mencoba untuk membuat Login dan Register di Laravel 10
 
-Step 1: Buka kembali website Laravel lalu cari Starter Kits lalu Breeze and Blade
+Step 1: Buka Terminal baru lalu masuk ke bagian dimana file laravel kalian berada
 
+Contoh:
+```
+cd C:\xampp\htdocs\example-app
+```
+
+Setelah itu masukkan kode dibawah ini untuk Instalasi Modul Laravel UI:
+```
+composer require laravel/ui
+```
+
+Setelah itu lanjutkan modul authentikasi, kodenya dibawah ini:
+```
+php artisan ui bootstrap --auth
+```
+
+Jika berhasil kode akan seperti dibawah ini:
 ![alt text](image-9.png)
 
-Setelah itu kita liat di sebelah terdapat tulisan Breeze and Blade lalu kita klick
+Jika gagal, coba kalian cek di terminal dengan scroll ke atas apakah ada error atau tidak, biasanya terdapat error seperti dibawah ini.
 
-![alt text](image-10.png)
-
-Nanti akan langsung mengarahkan ke sini
-
-![alt text](image-12.png)
-
-Sekarang kalian buka visual studio code kalian lalu buka file Laravel yang tadi kalian buat lalu buka terminal dengan shortcut (ctrl + `) atau kalian bisa mencari di pojok atas kiri tulisan **Terminal**.
-
-Setelah itu kalian copy ini dan paste ke dalam terminal terlebih dahulu:
-
-```
-composer require laravel/breeze --dev
-```
-
-Setelah proses selesai, kalian copy dan paste lagi kode yang berada di tag Breeze dan Blade. **Harap memasukkan kode nya 1 1 tidak semua**
-
-```
-php artisan breeze:install
-```
-
-Ketika muncul kata-kata seperti ini pilih **0**.
-![alt text](image-13.png)
-
-Jika kalian muncul seperti ini pilih **blade**.
-![alt text](image-14.png)
-
-Silahkan tunggu sampai proses selesai, ketika muncul seperti ini tekan **Enter** saja.
-![alt text](image-15.png)
-
-Ketika sudah selesai dan muncul seperti ini pilih **0** dan tunggu sampai selesai.
-![alt text](image-16.png)
-
-Coba kalian cek di terminal dengan scroll ke atas apakah ada error atau tidak, biasanya terdapat error seperti dibawah ini.
 ![alt text](image-17.png)
 
-Cara mengatasinya dengan membuka **package.json** lalu tambahkan kode ini dibawah "private":
-
+Cara mengatasinya dengan membuka **package.json** di file laravel kalian melalui vscode lalu tambahkan kode ini dibawah "private":
 ```
 "type": "module",
 ```
@@ -74,16 +55,37 @@ Sehingga kode keseluruhan menjadi seperti berikut:
 ketika sudah dipastikan kode seperti itu maka jalankan kembali kode ini dan tunggu sampai berhasil.
 
 ```
-php artisan breeze:install
+php artisan ui bootstrap --auth
 ```
 
-Ketika sudah memastikan kode tidak ada error di terminal maka bisa langsung lanjut kode yang dibawah ini:
+Setelah itu buka terminal lalu jalankan perintah.
 
 ```
-php artisan migrate
+npm install
 ```
 
-Biasanya terdapat error dibagian SQL nya contoh seperti ini:
+Setelah itu:
+
+```
+npm run dev
+```
+
+Nanti akan muncul seperti ini di terminal
+
+![alt text](image-11.png)
+
+Buka lagi sebuah terminal baru, dan jalankan server laravel. 
+```
+php artisan server
+```
+(npm run dev harus tetap berjalan di terminal lain) setelah itu hasil pada browser, tampilan awal laravel saat ini sudah dilengkapi dengan **login** dan **register**.
+
+![alt text](image-12.png)
+
+Sampai sesi ini, antarmuka sudah jalan. Pada windows, kedua perintah harus dijalankan. (npm run dev) dan (php artisan serve).
+
+# Jika terdapat error dibagian SQL nya contoh seperti ini:
+
 ![alt text](image-18.png)
 
 Maka solusi yang bisa kita gunakan adalah menggunakan kode dibawah ini:
@@ -131,7 +133,9 @@ class AppServiceProvider extends ServiceProvider
 }
 ```
 
-Step 4: cari file bernama **.env**
+Step 4: cari file bernama **.env**. Dan kosongkan password jika koneksi ke database tidak menggunakan password, atau isikan sesuai password yang telah di atur pada saat instalasi XAMPP.
+
+
 
 Step 5: buka aplikasi xampp lalu start apache dan MySQL seperti ini:
 ![alt text](image-19.png)
@@ -152,27 +156,17 @@ Lalu kalian bikin **Database name** sesuai dengan yang ada di file **.env** kali
 Step 8: Ketika sudah dipastikan nama database nya benar dan portnya benar kalian bisa mengulang kode yang ditaruh di terminal tadi.
 
 ```
+php artisan migrate:fresh
+```
+atau
+```
 php artisan migrate
 ```
 
+Proses ini melakukan migrasi tabel users dan beberapa table lain yang terdapat pada folder.
+
 Ketika berhasil akan muncul **done** seperti ini
 ![alt text](image-23.png)
-
-Pastikan kode sebelumnya bisa berjalan dengan benar, ketika sudah kita lanjut 2 kode dibawah ini.
-
-```
-npm install
-```
-
-```
-npm run dev
-```
-
-Ketika sudah muncul link yang tersedia dari terminal kita buat terminal baru dengan dengan klik logo **+** di sebelah kanan lalu gunakan kode dibawah ini.
-
-```
-php artisan serve
-```
 
 Ketika sudah muncul link nya kalian bisa klik link tersebut dan menuju kesebuah website. Ketika sudah muncul website nya, kalian bisa klik register disebelah kanan atas dan silahkan memasukkan username, password, dan email aktif kalian. Jika sudah berhasil maka akan muncul tulisan seperti ini:
 

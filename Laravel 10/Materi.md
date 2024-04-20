@@ -79,19 +79,6 @@ Setelah itu, masukkan kode ini di Command Prompt:
 ```
 cd example-app
 ```
-Ingat untuk "example-app" itu hanya sebuah nama folder jadi diingat ingat sebelumnya nama folder kalian itu apa
-```
-php artisan serve
-```
-
-Tunggu hingga tampilan menjadi seperti ini:
-
-![alt text](image-6.png)
-
-Lalu copy-paste "http://127.0.0.1:8000" dari Command Prompt ke browser.
-
-![alt text](image-7.png)
-
-![alt text](image-11.png)
+Ingat untuk "example-app" itu hanya sebuah nama folder jadi diingat ingat sebelumnya nama folder kalian itu apa.
 
 [LANJUT LOGIN DAN REGISTER](https://github.com/AdamFirman8124/Pemateri/blob/main/Laravel%2010/MateriLoginRegister.md)
