@@ -168,8 +168,76 @@ Proses ini melakukan migrasi tabel users dan beberapa table lain yang terdapat p
 Ketika berhasil akan muncul **done** seperti ini
 ![alt text](image-23.png)
 
-Ketika sudah muncul link nya kalian bisa klik link tersebut dan menuju kesebuah website. Ketika sudah muncul website nya, kalian bisa klik register disebelah kanan atas dan silahkan memasukkan username, password, dan email aktif kalian. Jika sudah berhasil maka akan muncul tulisan seperti ini:
+Setelah itu kembali ke terminal dan mengaktifkan (php artisan serve) dan (npm run dev). Ketika sudah muncul link nya yang berada di (php artisan serve). kalian bisa klik link tersebut dan menuju kesebuah website. Ketika sudah muncul website nya, kalian bisa klik register disebelah kanan atas dan silahkan memasukkan username, password, dan email aktif kalian. Jika sudah berhasil maka akan muncul tulisan seperti ini:
 
 ![alt text](image-24.png)
 
-Tunggu update selanjutnya ya :D
+# Meninjau Model
+
+1.Buka file app\Models\User.php
+```
+namespace App\Models;
+// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
+
+class User extends Authenticatable
+{
+    use HasApiTokens, HasFactory, Notifiable;
+
+    /**
+    * The attributes that are mass assignable.
+    * @var array<int, string>
+    */
+    protected $fillable = [
+        'name',
+        'email',
+        'password',
+    ];
+
+    /**
+    * The attributes that should be hidden for serialization.
+    * @var array<int, string>
+    */
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
+
+    /**
+    * The attributes that should be cast.
+    * @var array<string, string>
+    */
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+        'password' => 'hashed',
+    ];
+}
+```
+2. Ada tiga assigment properti pada model User. ketiganya adalah
+
+- protected $fillable. Mendifinisikan kolom yang boleh diisi hanya name, email dan password pada saat melakukan Insert data. Fields atau atribut lain akan dibuat otomatis oleh sistem.
+
+- protected $hidden. Mendefinisikan field atau kolom yang tidak tertampil seandainya diakukan pemanggilan data untuk semua kolom menggunakan fungsi User::all().
+
+- protected $casts. Mengkonversi nilai tipe data. Dalam hal ini data dari field email_verified_at diubah menjadi datetime, dan password diubah menjadi terenkripsi. 
+
+# Meninjau View 
+
+1. Buka folder resources\views
+
+2. Route dengan alamat url / mengarahkan respon ke view welcome.blade.php.
+
+3. Kemudian url /home mengatur menuju controller HomeController.php. Hanya saja, fungsi-fungsi pada HomeController.php harus melewati proses authentikasi middleware('auth') yang didefinisikan pada fungsi __construct() atau harus login. Itulah mengapa ketika kita mencoba akses langsung ke /home selalui dilempar ke halaman view(login).
+
+4. Pada views juga telah dibuatkan layout app.blade.php sebagai template utama, yang di extend oleh view('welcome') dan view('home').
+
+[TIP] Buka kembali tutorial tentang layout.
+
+5. Pada folder auth, terdapat file view login.blade.php, register.blade.php dan verify.blade.php. Anda tidak perlu melakukan modifikasi pada bagian ini.
+
+6. Di dalam folder auth ada lagi folder passwords yang berisi beberapa file view.
+
+[LANJUT MENAMBAHKAN DATA USER]
