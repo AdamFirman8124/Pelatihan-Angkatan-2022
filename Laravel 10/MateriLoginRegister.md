@@ -173,5 +173,3 @@ Ketika sudah muncul link nya kalian bisa klik link tersebut dan menuju kesebuah 
 ![alt text](image-24.png)
 
 Tunggu update selanjutnya ya :D
-
-[def]: Pemateri/
