@@ -18,6 +18,15 @@ Lalu jalankan kode ini:
 ```
 composer create-project laravel/laravel:^10.0 example-app
 ```
+atau
+```
+composer create-project laravel/laravel="10.2" example-app
+```
+atau juga bisa
+```
+laravel new example-app
+```
+
 "example-app" pada kode diatas merupakan nama Folder yang akan dibuat, nama foldernya bisa apa saja selama kata nya tidak terpisah oleh space/spasi
 
 ![alt text](<WhatsApp Image 2024-04-04 at 23.35.47_5b455dee.jpg>)
