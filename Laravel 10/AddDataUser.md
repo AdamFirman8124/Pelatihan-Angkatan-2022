@@ -31,4 +31,4 @@
 
 Selain itu, jika sudah Login juga ditampilkan Nama pengguna, dan menu Logout.
 
-**Tunggu update selanjutnya**
+[LANJUTKAN MENAMPILKAN DATA USER](https://github.com/AdamFirman8124/Pemateri/blob/main/Laravel%2010/MenampilkanDataUser.md)
