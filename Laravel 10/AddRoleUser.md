@@ -4,11 +4,11 @@
 
     1.1. Buka phpMyAdmin melalui xampp:
 
-    ![alt text](image-26.png)
+    ![alt text](image-7.png)
         
     Pilih bagian Admin pada MySQL nya. maka akan keluar tampilan ini:
 
-    ![alt text](image-27.png)
+    ![alt text](image-8.png)
 
     1.2. Setelah masuk, pilih nama database kalian masing - masing (disini namanya laravel) -> users -> Structure
 
