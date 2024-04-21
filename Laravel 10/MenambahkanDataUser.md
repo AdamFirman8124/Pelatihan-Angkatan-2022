@@ -19,7 +19,7 @@
 </ul>
 ```
 
-2. Pada bagian lain file **app.blade.php** terdapat bagian menampilkan nama pengguna jika sudah login. Pada bagian lain yang berisi **@yield('content')**tentunya dipahami sebagai tempat menampilkan **@section('content')** dari file lain ke dalam template ini.
+2. Pada bagian lain file **app.blade.php** terdapat bagian menampilkan nama pengguna jika sudah login. Pada bagian lain yang berisi **@yield('content')** tentunya dipahami sebagai tempat menampilkan **@section('content')** dari file lain ke dalam template ini.
 
 3. Akses alamat URL /login dan lihat hasil bagian atas, Ada menu About. 
 
