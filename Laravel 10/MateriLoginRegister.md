@@ -235,4 +235,4 @@ class User extends Authenticatable
 
 6. Di dalam folder auth ada lagi folder passwords yang berisi beberapa file view.
 
-[LANJUT MENAMBAHKAN DATA USER](https://github.com/AdamFirman8124/Pemateri/blob/main/Laravel%2010/AddDataUser.md)
+[LANJUT MENAMBAHKAN DATA USER](https://github.com/AdamFirman8124/Pelatihan-Angkatan-2022/blob/main/Laravel%2010/MenambahkanDataUser.md)
