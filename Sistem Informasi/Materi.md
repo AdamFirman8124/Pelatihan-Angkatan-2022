@@ -376,9 +376,7 @@ public function store(Request $request)
 }
 ```
 
-4. Jangan lupa membuat folder img di dalam folder public **(public/img)**.
-
-5. Coba lakukan proses penambahan data. dan lihat hasilnya.
+4. Coba lakukan proses penambahan data. dan lihat hasilnya.
 
 ## 5.4 View produk\show.blade.php
 
