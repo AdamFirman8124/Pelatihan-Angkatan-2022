@@ -553,7 +553,7 @@ Ubah Controller fungsi destroy untuk hapus file
 return response()->view('produk.index',['produks'=>Produk::paginate(2)]);
 ```
 
-2. Modifikasi view produk/index.blade.php dengan menambahkan baris perintah ini setelah </table> </div>
+2. Modifikasi view produk/index.blade.php dengan menambahkan baris perintah ini setelah **table /div**
 
 ```
 <div class="d-flex justify-content-end">
