@@ -573,8 +573,6 @@ public function boot(): void
 }
 ```
 
-4. Lihat Hasilnya
-
 # 7. View Data dengan Searching
 
 1. Modifikasi ***ProdukController.php** bagian index.
