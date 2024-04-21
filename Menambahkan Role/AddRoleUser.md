@@ -255,7 +255,7 @@
     ```
     Kode diatas berarti setiap user uang memiliki role sebagai manajer atau staff dapat melakukan fungsi create pada database.
     
-    Kemudian pada file create.blade.php, bisa dimasukkan kode ini untuk pengatran tampilan hak akses yag dimiliki untuk create produk:
+    Kemudian pada file create.blade.php, bisa dimasukkan kode ini untuk pengaturan tampilan hak akses yag dimiliki untuk create produk:
     ```
     @can('create', App\Models\Produk::class)
     <p>Bagian ini hanya bisa dilihat yang memiliki hak akses create produk</p>
@@ -265,7 +265,7 @@
 
 6. Pembatasan Menggunakan Route
 
-    Misalnya user dengan role sebagai manajer dan staff dapat melihat data, maka pastikan kode ini ada pada function view di file Produk.Policy.php:
+    Misalnya user dengan role sebagai manajer dan staff dapat melihat data, maka pastikan kode ini ada pada function view di file ProdukPolicy.php:
     ```
     public function view(User $user, Produk $produk): bool
     {
