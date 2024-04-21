@@ -260,10 +260,6 @@ Tambahkan menu di **layouts\app.blade.php**, pada bagian **@auth ... @endauth**
 2. Hasil ketika data belum ada.
 ![alt text](https://github.com/AdamFirman8124/Pemateri/blob/main/Sistem%20Informasi/assets/image-3.png)
 
-3. Hasil ketika sudah ada data (silahkan dilihat setelah proses tambahkan produk selesai) contoh seperti ini:
-
-![alt text](https://github.com/AdamFirman8124/Pemateri/blob/main/Sistem%20Informasi/assets/image-4.png)
-
 ## 5.3 View produk\create.blade.php
 
 1. Buat view **create.blade.php** di dalam folder views/produk
@@ -321,7 +317,11 @@ Tambahkan menu di **layouts\app.blade.php**, pada bagian **@auth ... @endauth**
 @endsection
 ```
 
-2. Penjelasan
+2. Hasil ketika sudah ada data (silahkan dilihat setelah proses tambahkan produk selesai) contoh seperti ini:
+
+![alt text](https://github.com/AdamFirman8124/Pemateri/blob/main/Sistem%20Informasi/assets/image-4.png)
+
+3. Penjelasan
 - **@csrf** adalah instruksi dalam template Blade untuk memasukkan token CSRF ke dalam formulir HTML. CSRF (Cross-Site Request Forgery) adalah serangan keamanan di mana penyerang mencoba memanipulasi tindakan yang dilakukan oleh pengguna yang sah di situs web yang terkena.
 
 - Token CSRF dihasilkan secara otomatis oleh Laravel untuk setiap sesi pengguna. Ketika menggunakan @csrf dalam formulir Blade, Laravel akan memasukkan token ini ke dalam formulir tersebut. Saat formulir tersebut dikirimkan, token ini akan diverifikasi oleh Laravel untuk memastikan bahwa permintaan yang dibuat berasal dari pengguna yang sah di aplikasi tersebut, dan bukan dari serangan CSRF.
