@@ -29,7 +29,7 @@ public function index()
 
 Step 4: Kemudian login, klik menu Data User, Lihat hasilnya.
 
-![alt text](image-15.png)
+![alt text](https://github.com/AdamFirman8124/Pemateri/blob/main/Laravel%2010/assets/image-15.png)
 
 Step 5: Selain menggunakan Auth, user yang sedang login juga dapat diketahui menggunakan facades Request. Pada UserController.php buat fungsi datauser().
 
@@ -51,7 +51,7 @@ Route::get('/user-data', [App\Http\Controllers\UserController::class, 'dataUser'
 
 Step 7: Lihat pada url /user-data dan lihat hasilnya.
 
-![alt text](image-16.png)
+![alt text](https://github.com/AdamFirman8124/Pemateri/blob/main/Laravel%2010/assets/image-16.png)
 
 Step 8: Lanjutkan membuat file user.blade.php, isinya sebagai berikut.
 
@@ -107,6 +107,6 @@ Route::get('/user', [App\Http\Controllers\UserController::class, 'dataUser'])->n
 
 Jadi ketika kalian menekan bagian **Data User** maka akan seperti ini
 
-![alt text](image-25.png)
+![alt text](https://github.com/AdamFirman8124/Pemateri/blob/main/Laravel%2010/assets/image-25.png)
 
 [LANJUT KE PEMBUATAN TABEL](https://github.com/AdamFirman8124/Pemateri/blob/main/Sistem%20Informasi/Materi.md)
