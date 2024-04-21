@@ -4,31 +4,31 @@
 
     1.1. Buka phpMyAdmin melalui xampp:
 
-    ![alt text](https://github.com/AdamFirman8124/Pemateri/blob/main/Laravel%2010/assets/image-71.png)
+    ![alt text](https://github.com/AdamFirman8124/Pemateri/blob/main/Menambahkan%20Role/assets/image71.png)
         
     Pilih bagian Admin pada MySQL nya. maka akan keluar tampilan ini:
 
-    ![alt text](https://github.com/AdamFirman8124/Pemateri/blob/main/Laravel%2010/assets/image-81.png)
+    ![alt text](https://github.com/AdamFirman8124/Pemateri/blob/main/Menambahkan%20Role/assets/image81.png)
 
     1.2. Setelah masuk, pilih nama database kalian masing - masing (disini namanya laravel) -> users -> Structure
 
-    ![alt text](https://github.com/AdamFirman8124/Pemateri/blob/main/Laravel%2010/assets/image1.png)
+    ![alt text](https://github.com/AdamFirman8124/Pemateri/blob/main/Menambahkan%20Role/assets/image1.png)
 
     1.3. Pilih bagian Add = 1, colomn(s) = after email, kemudian pencet Go
 
-    ![alt text](https://github.com/AdamFirman8124/Pemateri/blob/main/Laravel%2010/assets/image-111.png)
+    ![alt text](https://github.com/AdamFirman8124/Pemateri/blob/main/Menambahkan%20Role/assets/image111.png)
 
     1.4. kemudian masukkan Name = role, Type = VARCHAR, Length/Values = 50, lalu kelik Save
 
-    ![alt text](https://github.com/AdamFirman8124/Pemateri/blob/main/Laravel%2010/assets/image-211.png)
+    ![alt text](https://github.com/AdamFirman8124/Pemateri/blob/main/Menambahkan%20Role/assets/image211.png)
 
     1.5. Masuk pada bagian Browse tab, lalu pilih edit users pertama
 
-    ![alt text](https://github.com/AdamFirman8124/Pemateri/blob/main/Laravel%2010/assets/image-31.png)
+    ![alt text](https://github.com/AdamFirman8124/Pemateri/blob/main/Menambahkan%20Role/assets/image31.png)
 
     1.6. Pilih attribute role dan masukkan Value nya = manajer, scroll kebawah dan klik Go
 
-    ![alt text](https://github.com/AdamFirman8124/Pemateri/blob/main/Laravel%2010/assets/image-51.png)
+    ![alt text](https://github.com/AdamFirman8124/Pemateri/blob/main/Menambahkan%20Role/assets/image51.png)
 
 2. Modifikasi Kode User
 
@@ -185,7 +185,7 @@
     ```
     php artisan make:policy ProdukPolicy -m Produk
     ```
-    ![alt text](https://github.com/AdamFirman8124/Pemateri/blob/main/Laravel%2010/assets/image-61.png)
+    ![alt text](https://github.com/AdamFirman8124/Pemateri/blob/main/Menambahkan%20Role/assets/image61.png)
 
     4.2. Set fungsi pada Produk Policy menjadi 'true'
 
