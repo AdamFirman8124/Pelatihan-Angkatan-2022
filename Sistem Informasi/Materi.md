@@ -69,6 +69,10 @@ class Produk extends Model
 1. Buka file **app\Http\Controllers\ProdukController**.php. Lakukan modifikasi sebagaimana dicontohkan di bawah ini.
 
 ```
+<?php
+
+namespace App\Http\Controllers;
+
 use App\Models\Produk;
 use Illuminate\Http\Request;
 // Dua baris tambahan
