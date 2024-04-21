@@ -6,4 +6,5 @@ Kelanjutan dari praktek sebelumnya adalah membuat CRUD (Create Read Update Delet
 
 1. Buka terminal. ketik perintah membuat migration produk beserta model dan controller. **php artisan make:model Produk -mcr**
 
-![alt text](image.png)
+![alt text](https://github.com/AdamFirman8124/Pemateri/blob/main/Sistem%20Informasi/assets/image(1).png)
+
