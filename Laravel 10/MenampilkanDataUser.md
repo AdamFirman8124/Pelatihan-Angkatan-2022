@@ -109,4 +109,4 @@ Jadi ketika kalian menekan bagian **Data User** maka akan seperti ini
 
 ![alt text](image-25.png)
 
-[LANJUT KE PEMBUATAN SISTEM INFORMASI]()
+[LANJUT KE PEMBUATAN TABEL](https://github.com/AdamFirman8124/Pemateri/blob/main/Sistem%20Informasi/Materi.md)
