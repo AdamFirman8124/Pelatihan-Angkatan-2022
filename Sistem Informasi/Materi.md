@@ -334,7 +334,7 @@ Tambahkan menu di **layouts\app.blade.php**, pada bagian **@auth ... @endauth**
 @enderror
 ```
 
-3. Modifikasi controller pada bagian fungsi store.
+3. Modifikasi controller pada bagian fungsi store di file **ProdukController.php**.
 
 ```
 public function store(Request $request)
