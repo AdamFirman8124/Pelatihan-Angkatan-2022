@@ -13,3 +13,5 @@ Perlu ditekankan bahwa ketiga komponen tersebut termasuk hal vital dalam pembang
 1. Firmansyah Achmad Adam
 2. Dana Affan Rabbani
 3. Haidar Dzaky Musyaffa
+
+selamat belajar

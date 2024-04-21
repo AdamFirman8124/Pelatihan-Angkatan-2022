@@ -18,11 +18,11 @@ php artisan ui bootstrap --auth
 ```
 
 Jika berhasil kode akan seperti dibawah ini:
-![alt text](image-9.png)
+![alt text](https://github.com/AdamFirman8124/Pemateri/blob/main/Laravel%2010/assets/image-9.png)
 
 Jika gagal, coba kalian cek di terminal dengan scroll ke atas apakah ada error atau tidak, biasanya terdapat error seperti dibawah ini.
 
-![alt text](image-17.png)
+![alt text](https://github.com/AdamFirman8124/Pemateri/blob/main/Laravel%2010/assets/image-17.png)
 
 Cara mengatasinya dengan membuka **package.json** di file laravel kalian melalui vscode lalu tambahkan kode ini dibawah "private":
 ```
@@ -72,7 +72,7 @@ npm run dev
 
 Nanti akan muncul seperti ini di terminal
 
-![alt text](image-11.png)
+![alt text](https://github.com/AdamFirman8124/Pemateri/blob/main/Laravel%2010/assets/image-11.png)
 
 Buka lagi sebuah terminal baru, dan jalankan server laravel. 
 ```
@@ -80,13 +80,13 @@ php artisan server
 ```
 (npm run dev harus tetap berjalan di terminal lain) setelah itu hasil pada browser, tampilan awal laravel saat ini sudah dilengkapi dengan **login** dan **register**.
 
-![alt text](image-12.png)
+![alt text](https://github.com/AdamFirman8124/Pemateri/blob/main/Laravel%2010/assets/image-12.png)
 
 Sampai sesi ini, antarmuka sudah jalan. Pada windows, kedua perintah harus dijalankan. (npm run dev) dan (php artisan serve).
 
 # Jika terdapat error dibagian SQL nya contoh seperti ini:
 
-![alt text](image-18.png)
+![alt text](https://github.com/AdamFirman8124/Pemateri/blob/main/Laravel%2010/assets/image-18.png)
 
 Maka solusi yang bisa kita gunakan adalah menggunakan kode dibawah ini:
 
@@ -138,18 +138,21 @@ Step 4: cari file bernama **.env**. Dan kosongkan password jika koneksi ke datab
 
 
 Step 5: buka aplikasi xampp lalu start apache dan MySQL seperti ini:
-![alt text](image-19.png)
+![alt text](https://github.com/AdamFirman8124/Pemateri/blob/main/Laravel%2010/assets/image-19.png)
 
 Pastikan **DB_PORT** sesuai dengan yang ada di aplikasi xampp
 
 Step 6: Buka website lalu ketik **localhost** lalu klik bagian **phpMyAdmin**
-![alt text](image-20.png)
+
+![alt text](https://github.com/AdamFirman8124/Pemateri/blob/main/Laravel%2010/assets/image-20.png)
 
 Step 7: Setelah muncul seperti ini.
-![alt text](image-21.png)
+
+![alt text](https://github.com/AdamFirman8124/Pemateri/blob/main/Laravel%2010/assets/image-21.png)
 
 Website akan berubah seperti ini
-![alt text](image-22.png)
+
+![alt text](https://github.com/AdamFirman8124/Pemateri/blob/main/Laravel%2010/assets/image-22.png)
 
 Lalu kalian bikin **Database name** sesuai dengan yang ada di file **.env** kalian bisa cek di **DB_DATABASE**
 
@@ -166,11 +169,11 @@ php artisan migrate
 Proses ini melakukan migrasi tabel users dan beberapa table lain yang terdapat pada folder.
 
 Ketika berhasil akan muncul **done** seperti ini
-![alt text](image-23.png)
+![alt text](https://github.com/AdamFirman8124/Pemateri/blob/main/Laravel%2010/assets/image-23.png)
 
 Setelah itu kembali ke terminal dan mengaktifkan (php artisan serve) dan (npm run dev). Ketika sudah muncul link nya yang berada di (php artisan serve). kalian bisa klik link tersebut dan menuju kesebuah website. Ketika sudah muncul website nya, kalian bisa klik register disebelah kanan atas dan silahkan memasukkan username, password, dan email aktif kalian. Jika sudah berhasil maka akan muncul tulisan seperti ini:
 
-![alt text](image-24.png)
+![alt text](https://github.com/AdamFirman8124/Pemateri/blob/main/Laravel%2010/assets/image-24.png)
 
 # Meninjau Model
 
