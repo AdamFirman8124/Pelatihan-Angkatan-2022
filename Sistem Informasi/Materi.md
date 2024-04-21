@@ -547,7 +547,7 @@ Ubah Controller fungsi destroy untuk hapus file
 ```
 
 # 6. View Data dengan Pagination
-1. Modifikasi Controller bagian index. https://laravel.com/docs/10.x/eloquent-resources#pagination
+1. Modifikasi Controller bagian index didalam file **ProdukController.php**. https://laravel.com/docs/10.x/eloquent-resources#pagination
 
 ```
 return response()->view('produk.index',['produks'=>Produk::paginate(2)]);
