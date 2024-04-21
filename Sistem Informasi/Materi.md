@@ -27,11 +27,9 @@ public function up(): void
 ```
 3. Ketik perintah migrate pada terminal **php artisan migrate**.
 
-![alt text](https://github.com/AdamFirman8124/Pemateri/blob/main/Laravel%2010/assets/image-1.png)
-
 4. Periksa database, kini sudah ada tambahan tabel **produks**.
 
-![alt text](https://github.com/AdamFirman8124/Pemateri/blob/main/Laravel%2010/assets/image-2.png)
+![alt text](https://github.com/AdamFirman8124/Pemateri/blob/main/Sistem%20Informasi/assets/image-2.png)
 
 # 2 Buat route menuju ProdukController
 
