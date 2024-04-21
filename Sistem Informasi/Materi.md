@@ -422,7 +422,7 @@ Buat view **show.blade.php** letakkan di dalam folder views/produk seperti lainn
 
 ## 5.5 View produk\edit.blade.php
 
-1. Buat view edit.blade.php
+1. Buat view **edit.blade.php**
 
 ```
 @extends('layouts.app')
@@ -489,7 +489,7 @@ Buat view **show.blade.php** letakkan di dalam folder views/produk seperti lainn
 @endsection
 ```
 
-2. Modifikasi ProdukController pada bagian fungsi update.
+2. Modifikasi **ProdukController.php** pada bagian fungsi update.
 
 ```
 // Tambahan untuk akses file
