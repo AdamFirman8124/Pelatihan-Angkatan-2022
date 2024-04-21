@@ -23,11 +23,11 @@
 
 3. Akses alamat URL /login dan lihat hasil bagian atas, Ada menu About. 
 
-![alt text](image-13.png)
+![alt text](https://github.com/AdamFirman8124/Pemateri/blob/main/Laravel%2010/assets/image-13.png)
 
 4. Jika sudah login, akan ada menu Data User.
 
-![alt text](image-14.png)
+![alt text](https://github.com/AdamFirman8124/Pemateri/blob/main/Laravel%2010/assets/image-14.png)
 
 Selain itu, jika sudah Login juga ditampilkan Nama pengguna, dan menu Logout.
 
