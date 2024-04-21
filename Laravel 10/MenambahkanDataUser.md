@@ -1,6 +1,6 @@
 # Menambahkan Menu Data User
 
-1. Buka file layout **app.blade.php** tambahkan menu Data User yang tampil jika pengguna sudah login. Blok program di antara @auth ... @endauth akan ditampilkan jika pengguna sudah login. Blok program di antara @guest ... @endguest akan ditampilkan jika pengguna belum login.
+1. Buka file layout **app.blade.php** tambahkan menu Data User yang tampil jika pengguna sudah login. Blok program di antara **@auth ... @endauth** akan ditampilkan jika pengguna sudah login. Blok program di antara **@guest ... @endguest** akan ditampilkan jika pengguna belum login.
 
 ```
 <!-- Left Side Of Navbar -->
