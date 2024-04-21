@@ -38,7 +38,7 @@ public function up(): void
 
 6. Periksa database, kini sudah ada tambahan tabel **produks**
 
-![alt text](image-2.png)
+![alt text](https://github.com/AdamFirman8124/Pemateri/blob/main/Laravel%2010/assets/image-2.png)
 
 # 2 Buat route menuju ProdukController
 
@@ -237,11 +237,11 @@ Tambahkan menu di **layouts\app.blade.php**, pada bagian **@auth ... @endauth**
 ```
 
 2. Hasil ketika data belum ada.
-![alt text](image-3.png)
+![alt text](https://github.com/AdamFirman8124/Pemateri/blob/main/Laravel%2010/assets/image-3.png)
 
 3. Hasil ketika sudah ada data (silahkan dilihat setelah proses tambahkan produk selesai) contoh seperti ini:
 
-![alt text](image-4.png)
+![alt text](https://github.com/AdamFirman8124/Pemateri/blob/main/Laravel%2010/assets/image-4.png)
 
 ## 5.3 View produk\create.blade.php
 
