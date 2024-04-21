@@ -212,11 +212,19 @@
     ```
     public function destroy(Produk $produk)
     {
-        // Pembatasan hak akses atau policy
         $this->authorize('delete',$produk);
         
-        // Lanjutan blok program tetap
+        // Hapus file
+        if($produk->image){ //Cek dahulu apakah field ada isinyagant
+            $destination = 'img/'.$produk->image;
+            if(File::exists($destination)) // Cek apakah file ada di folder
+            {
+                File::delete($destination);
+            }
+        }
 
+        $produk->delete();
+        return redirect('/produks')->with('pesan',"Produk $produk->nama_produk berhasil dihapus");
     }
     ```
 
@@ -234,12 +242,44 @@
     Kemudian pada file ProdukController.php, ubah function store menjadi seperti ini:
     ```
     public function store(Request $request)
+public function store(Request $request)
     {
-        // Pembatasan hak akses atau policy
         $this->authorize('create',Produk::class);
         
-        // Lanjutan blok program tetap
+        $validateData = $request->validate(
+            [
+                'nama_produk'   => 'required',
+                'deskripsi' => 'required',
+                'image' => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048'
+                // 'jumlah' => 'required|min:10|integer'
+            ]
+            );
 
+        if($request->file('image')){
+            $file= $request->file('image');
+            $filename= date('YmdHi').$file->getClientOriginalName();
+            $file-> move(public_path('img'), $filename);
+            $validateData['image']=$filename;
+        }
+        // Tambah atribut yang tidak memakai validasi. 
+        $validateData['aturan_sewa']=$request->aturan_sewa;
+        /*
+        Cara Lain tidak memakai mass assignment
+        $data= new Produk();
+
+        if($request->file('image')){
+            $file= $request->file('image');
+            $filename= date('YmdHi').$file->getClientOriginalName();
+            $file-> move(public_path('public/img'), $filename);
+            $data['image']= $filename;
+        }
+        $data->save();
+        */
+
+        // kalau pakai mass assignment di model harus ada
+        // protected $guarded = [];
+        Produk::create($validateData);
+        return redirect('/produks')->with('pesan',"Produk $request->nama_produk berhasil ditambahkan");
     }
     ```
 5. Pemberian Hak Akses
@@ -255,7 +295,7 @@
     ```
     Kode diatas berarti setiap user uang memiliki role sebagai manajer atau staff dapat melakukan fungsi create pada database.
     
-    Kemudian pada file create.blade.php, bisa dimasukkan kode ini untuk pengaturan tampilan hak akses yag dimiliki untuk create produk:
+    Kemudian pada file create.blade.php, masukkan kode ini antara `<hr>` dengan `<form action...>`:
     ```
     @can('create', App\Models\Produk::class)
     <p>Bagian ini hanya bisa dilihat yang memiliki hak akses create produk</p>
