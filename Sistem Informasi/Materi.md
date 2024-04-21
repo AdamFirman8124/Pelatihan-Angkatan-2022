@@ -64,6 +64,24 @@ class Produk extends Model
 }
 ```
 
+sehingga kode keseluruhan menjadi
+
+```
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Produk extends Model
+{
+    use HasFactory;
+    
+    protected $guarded = [];
+}
+```
+
 # 4. Persiapkan ProdukController
 
 1. Buka file **app\Http\Controllers\ProdukController**.php. Lakukan modifikasi sebagaimana dicontohkan di bawah ini.
