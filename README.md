@@ -15,3 +15,5 @@ Perlu ditekankan bahwa ketiga komponen tersebut termasuk hal vital dalam pembang
 3. Haidar Dzaky Musyaffa
 
 Selamat Belajar :D
+
+kata emak-emak "tinggal ctrl + c sama ctrl + v"
