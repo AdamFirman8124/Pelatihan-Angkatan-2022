@@ -140,13 +140,11 @@ Step 4: cari file bernama **.env**. Dan kosongkan password jika koneksi ke datab
 Step 5: buka aplikasi xampp lalu start apache dan MySQL seperti ini:
 ![alt text](https://github.com/AdamFirman8124/Pemateri/blob/main/Laravel%2010/assets/image-19.png)
 
+Setelah itu klik bagian **Admin**
+
 Pastikan **DB_PORT** sesuai dengan yang ada di aplikasi xampp
 
-Step 6: Buka website lalu ketik **localhost** lalu klik bagian **phpMyAdmin**
-
-![alt text](https://github.com/AdamFirman8124/Pemateri/blob/main/Laravel%2010/assets/image-20.png)
-
-Step 7: Setelah muncul seperti ini.
+Step 6: Setelah muncul seperti ini.
 
 ![alt text](https://github.com/AdamFirman8124/Pemateri/blob/main/Laravel%2010/assets/image-21.png)
 
@@ -156,7 +154,7 @@ Website akan berubah seperti ini
 
 Lalu kalian bikin **Database name** sesuai dengan yang ada di file **.env** kalian bisa cek di **DB_DATABASE**
 
-Step 8: Ketika sudah dipastikan nama database nya benar dan portnya benar kalian bisa mengulang kode yang ditaruh di terminal tadi.
+Step 7: Ketika sudah dipastikan nama database nya benar dan portnya benar kalian bisa mengulang kode yang ditaruh di terminal tadi.
 
 ```
 php artisan migrate:fresh
