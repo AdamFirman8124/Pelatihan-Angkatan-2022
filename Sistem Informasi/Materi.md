@@ -380,7 +380,7 @@ public function store(Request $request)
 
 ## 5.4 View produk\show.blade.php
 
-Buat view **show.blade.php** letakkan di dalam folder viewa/produk seperti lainnya
+Buat view **show.blade.php** letakkan di dalam folder views/produk seperti lainnya
 
 ```
 @extends('layouts.app')
