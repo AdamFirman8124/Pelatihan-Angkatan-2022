@@ -18,7 +18,7 @@
 
     ![alt text](https://github.com/AdamFirman8124/Pemateri/blob/main/Menambahkan%20Role/assets/image-111.png)
 
-    1.4. kemudian masukkan Name = role, Type = VARCHAR, Length/Values = 50, lalu kelik Save
+    1.4. kemudian masukkan Name = role, Type = VARCHAR, Length/Values = 50, lalu klik Save
 
     ![alt text](https://github.com/AdamFirman8124/Pemateri/blob/main/Menambahkan%20Role/assets/image-211.png)
 
@@ -232,17 +232,7 @@
 
     Pada file ProdukPolicy.php, ubah function create menjadi seperti ini:
     ```
-    public function create(User $user): bool
-    {
-        // Gunakan in_array jika lebih dari satu peran yang boleh melakukan hak akses
-        // return in_array($user->email,['user@gmail.com']);
-        return in_array($user->role,['manajer', 'staff']);
-    }
-    ```
-    Kemudian pada file ProdukController.php, ubah function store menjadi seperti ini:
-    ```
     public function store(Request $request)
-public function store(Request $request)
     {
         $this->authorize('create',Produk::class);
         
@@ -293,7 +283,7 @@ public function store(Request $request)
         return in_array($user->role,['manajer', 'staff']);
     }
     ```
-    Kode diatas berarti setiap user uang memiliki role sebagai manajer atau staff dapat melakukan fungsi create pada database.
+    Kode diatas berarti setiap user yang memiliki role sebagai manajer atau staff dapat melakukan fungsi create pada database.
     
     Kemudian pada file create.blade.php, masukkan kode ini antara `<hr>` dengan `<form action...>`:
     ```
@@ -301,7 +291,7 @@ public function store(Request $request)
     <p>Bagian ini hanya bisa dilihat yang memiliki hak akses create produk</p>
     @endcan
     ```
-    Kode diatas diawali `@can` dan diakihri dengan `@endcan` yang berarti bagian tersebut merupakan bagian yang dapat menampilkan bagian yang bisa di akses oleh pemilik akses create produk. sebaliknya jika diawali `@cannot` dan diakhiri `@endcannot` digunakan untuk yang tidak memiliki hak akses create produk.
+    Kode diatas diawali `@can` dan diakihri dengan `@endcan` yang berarti bagian tersebut merupakan bagian yang dapat menampilkan bagian yang bisa di akses oleh pemilik akses create produk. Sebaliknya jika diawali `@cannot` dan diakhiri `@endcannot` digunakan untuk yang tidak memiliki hak akses create produk.
 
 6. Pembatasan Menggunakan Route
 
