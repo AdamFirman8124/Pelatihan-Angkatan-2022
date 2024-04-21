@@ -4,7 +4,7 @@ Untuk menginstall Laravel 10, kamu harus menginstall aplikasi in iterlebih dahul
 
 Composer-Setup.exe
 
-![alt text](<WhatsApp Image 2024-04-04 at 23.33.05_34312928.jpg>)
+![alt text](<assets\WhatsApp Image 2024-04-04 at 23.33.05_34312928.jpg>)
 ![alt text](<WhatsApp Image 2024-04-04 at 23.33.21_98587363.jpg>)
 ![alt text](<WhatsApp Image 2024-04-04 at 23.33.35_a8ada862.jpg>)
 ![alt text](<WhatsApp Image 2024-04-04 at 23.33.45_aab02019.jpg>)
