@@ -1,4 +1,4 @@
-# Membuat Tabel Produks Menggunakan Migration
+# Membuat Tabel Produk Menggunakan Migration
 
 Kelanjutan dari praktek sebelumnya adalah membuat CRUD (Create Read Update Delete) menggunakan fitur authetikasi yang telah dilakukan pada praktek pertama.
 
@@ -26,7 +26,7 @@ public function up(): void
 }
 ```
 
-3. Lihat status migration. php artisan migrate:status. Ada satu yang pending yaitu create produks_table.
+3. Lihat status migration. **php artisan migrate:status**. Ada satu yang pending yaitu create produks_table.
 
 ![alt text](https://github.com/AdamFirman8124/Pemateri/blob/main/Laravel%2010/assets/image.png)
 
