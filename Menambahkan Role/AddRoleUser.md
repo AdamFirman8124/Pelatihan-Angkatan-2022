@@ -232,6 +232,16 @@
 
     Pada file ProdukPolicy.php, ubah function create menjadi seperti ini:
     ```
+    public function create(User $user): bool
+    {
+        // Gunakan in_array jika lebih dari satu peran yang boleh melakukan hak akses
+        // return in_array($user->email,['user@gmail.com']);
+        return in_array($user->role,['manajer', 'staff']);
+    }
+    ```
+
+    Kemudian pada file ProdukController.php, ubah function store menjadi seperti ini:
+    ```
     public function store(Request $request)
     {
         $this->authorize('create',Produk::class);
@@ -311,3 +321,315 @@
     ->middleware('can:view,produk');
     ```
     Kode diatas digunakan untuk memberikan rute pada web.php untuk menampilkan detail produk sesuai dengan hak akses tiap user berdasarkan role nya.
+
+7. Final Code
+
+    Berikut adalah final code dari file create.blade.php :
+    ```
+    @extends('layouts.app')
+
+    @section('content')
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-sm-8 col-md-6">
+                <h1 class="h2 pt-4">Penambahan Produk</h1>
+                <hr>
+
+                @can('create', App\Models\Produk::class)
+                <p>Bagian ini hanya bisa dilihat yang memiliki hak akses create produk</p>
+                @endcan
+
+                <form action="{{url('/produks')}}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <div class="mb-3">
+                    <label class="form-label" for="nama_produk">Nama Produk</label>
+                    <input type="text" class="form-control @error('nama_produk') is-invalid @enderror" id="nama_produk" name="nama_produk" value="{{ old('nama_produk') }}">
+                    @error('nama_produk')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="deskripsi">Deskripsi</label>
+                    <input type="text" class="form-control @error('deskripsi') is-invalid @enderror" id="deskripsi" name="deskripsi" value="{{ old('deskripsi') }}">
+                    @error('deskripsi')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="aturan_sewa">Aturan Sewa</label>
+                    <input type="text" class="form-control @error('aturan_sewa') is-invalid @enderror" id="aturan_sewa" name="aturan_sewa" value="{{ old('aturan_sewa') }}">
+                    @error('aturan_sewa')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="image">Image</label>
+                    <input type="file" placeholder="Choose image" class="form-control @error('image') is-invalid @enderror" id="image" name="image" value="{{ old('image') }}">
+                    @error('image')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                <button type="submit" class="btn btn-primary my-2">Simpan</button>
+            </form>
+
+            </div>
+        </div>
+    </div>
+    @endsection
+    ```
+
+    Kemudian berikut ini adalah final code dari file web.php :
+    ```
+    <?php
+
+    use Illuminate\Support\Facades\Route;
+    use App\Http\Controllers\ProdukController;
+
+    /*
+    |--------------------------------------------------------------------------
+    | Web Routes
+    |--------------------------------------------------------------------------
+    |
+    | Here is where you can register web routes for your application. These
+    | routes are loaded by the RouteServiceProvider and all of them will
+    | be assigned to the "web" middleware group. Make something great!
+    |
+    */
+
+    Route::get('/', function () {
+        return view('welcome');
+    });
+
+    Auth::routes();
+
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/user', [App\Http\Controllers\UserController::class, 'dataUser'])->name('user');
+    Route::resource('produks',ProdukController::class)->middleware('auth');
+    Route::get('produks/{produk}',[ProdukController::class,'show'])
+    ->name('produks.show')
+    ->middleware('can:view,produk');
+    ```
+
+    Lalu berikut adalah final code dari file ProdukController.php :
+    ```
+    <?php
+
+    namespace App\Http\Controllers;
+
+    use App\Models\Produk;
+    use Illuminate\Http\Request;
+    // Dua baris tambahan
+    use Illuminate\Http\Response;
+    use Illuminate\Http\RedirectResponse;
+    use Illuminate\Support\Facades\File;
+    use Illuminate\Database\Eloquent\Builder; 
+
+    class ProdukController extends Controller
+    {
+        public function index(Request $request) //Tambahkan Request untuk search
+        {
+            //Baris ini mengarahkan ke folder produk, file index.blade.php
+            // return response()->view('produk.index',['produks'=>Produk::all()]);
+            // Pagination tanpa searching
+            // return response()->view('produk.index',['produks'=>Produk::paginate(2)]);
+    
+            // Pagination dan searching
+            // Jika menambah search
+    
+            $produks = Produk::query()
+            ->when(
+                $request->q,
+                function (Builder $builder) use ($request) {
+                    $builder->where('nama_produk', 'like', "%{$request->q}%")
+                        ->orWhere('deskripsi', 'like', "%{$request->q}%");
+                }
+            )
+            ->paginate(2)->withQueryString();
+        return view('produk.index', compact('produks'));
+    
+        }
+
+        public function create()
+        {
+            //Baris ini mengarahkan ke folder produk, file create.blade.php
+            return response()->view('produk.create');
+        }
+
+        public function store(Request $request)
+        {
+            $this->authorize('create',Produk::class);
+            
+            $validateData = $request->validate(
+                [
+                    'nama_produk'   => 'required',
+                    'deskripsi' => 'required',
+                    'image' => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048'
+                    // 'jumlah' => 'required|min:10|integer'
+                ]
+                );
+
+            if($request->file('image')){
+                $file= $request->file('image');
+                $filename= date('YmdHi').$file->getClientOriginalName();
+                $file-> move(public_path('img'), $filename);
+                $validateData['image']=$filename;
+            }
+            // Tambah atribut yang tidak memakai validasi. 
+            $validateData['aturan_sewa']=$request->aturan_sewa;
+            /*
+            Cara Lain tidak memakai mass assignment
+            $data= new Produk();
+
+            if($request->file('image')){
+                $file= $request->file('image');
+                $filename= date('YmdHi').$file->getClientOriginalName();
+                $file-> move(public_path('public/img'), $filename);
+                $data['image']= $filename;
+            }
+            $data->save();
+            */
+
+            // kalau pakai mass assignment di model harus ada
+            // protected $guarded = [];
+            Produk::create($validateData);
+            return redirect('/produks')->with('pesan',"Produk $request->nama_produk berhasil ditambahkan");
+        }
+
+        public function show(Produk $produk)
+        {
+            //Baris ini mengarahkan ke folder produk, file show.blade.php
+            return response()->view('produk.show', compact('produk'));
+        }
+
+        public function edit(Produk $produk)
+        {
+            //Baris ini mengarahkan ke folder produk, file edit.blade.php
+            return response()->view('produk.edit',compact('produk'));
+        }
+
+
+        public function update(Request $request, Produk $produk)
+        {
+            $validateData = $request->validate([
+                    'nama_produk'   => 'required',
+                    'deskripsi' => 'required',
+                    // 'aturan_sewa' => 'text',
+                    'image' => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048'
+                    // 'jumlah' => 'required|min:10|integer'
+            ]);
+            $validateData['aturan_sewa']=$request->aturan_sewa;
+            //Jika akan menghapus file lama.
+            // $produk = Produk::find($produk->id);
+            // Sebenarnya gak perlu cari karena sudah didefinisi di parameter
+
+            if($request->hasfile('image')){
+                $destination = 'img/'.$produk->image;
+                if(File::exists($destination))
+                {
+                    File::delete($destination);
+                }
+                $file= $request->file('image');
+                $filename= date('YmdHi').$file->getClientOriginalName();
+                $file-> move(public_path('img'), $filename);
+                $validateData['image']=$filename;
+            }
+            $produk->update($validateData);
+            return redirect('/produks/'.$produk->id)->with('pesan',"Produk $produk->nama_produk berhasil diupdate");
+        }
+
+        public function destroy(Produk $produk)
+        {
+            $this->authorize('delete',$produk);
+            
+            // Hapus file
+            if($produk->image){ //Cek dahulu apakah field ada isinyagant
+                $destination = 'img/'.$produk->image;
+                if(File::exists($destination)) // Cek apakah file ada di folder
+                {
+                    File::delete($destination);
+                }
+            }
+
+            $produk->delete();
+            return redirect('/produks')->with('pesan',"Produk $produk->nama_produk berhasil dihapus");
+        }
+    }
+    ```
+    Terakhir ini adalah final code dari file ProdukPolicy.php :
+    ```
+    <?php
+
+    namespace App\Policies;
+
+    use App\Models\Produk;
+    use App\Models\User;
+    use Illuminate\Auth\Access\Response;
+
+    class ProdukPolicy
+    {
+        /**
+        * Determine whether the user can view any models.
+        */
+        public function viewAny(User $user): bool
+        {
+            //
+        }
+
+        /**
+        * Determine whether the user can view the model.
+        */
+        public function view(User $user, Produk $produk): bool
+        {
+            // return in_array($user->email,['user@gmail.com']);
+            return in_array($user->role,['manajer','staff']);
+            // Jika semua pengguna boleh, maka set return true seperti semula
+        }
+
+        /**
+        * Determine whether the user can create models.
+        */
+        public function create(User $user): bool
+        {
+            // Gunakan in_array jika lebih dari satu peran yang boleh melakukan hak akses
+            // return in_array($user->email,['user@gmail.com']);
+            return in_array($user->role,['manajer', 'staff']);
+        }
+        /**
+        * Determine whether the user can update the model.
+        */
+        public function update(User $user, Produk $produk): bool
+        {
+            //
+        }
+
+        /**
+        * Determine whether the user can delete the model.
+        */
+        public function delete(User $user, Produk $produk): bool
+        {
+            // Khusus delete, hanya pengguna yang tertulis yang dibolehkan
+            return $user->role === 'manajer';
+            // return $user->email === 'priandari@gmail.com';
+        }
+
+        /**
+        * Determine whether the user can restore the model.
+        */
+        public function restore(User $user, Produk $produk): bool
+        {
+            //
+        }
+
+        /**
+        * Determine whether the user can permanently delete the model.
+        */
+        public function forceDelete(User $user, Produk $produk): bool
+        {
+            //
+        }
+    }
+    ```
