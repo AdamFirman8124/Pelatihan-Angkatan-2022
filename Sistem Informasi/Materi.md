@@ -17,9 +17,9 @@ public function up(): void
 {
     Schema::create('produks', function (Blueprint $table) {
         $table->id();
-        $table->string('nama_produk', 50);
+        $table->string('nama_barang', 50);
         $table->text('deskripsi');
-        $table->string('aturan_sewa',255);
+        $table->string('massa',255);
         $table->string('image', 100);
         $table->timestamps();
     });
