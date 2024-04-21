@@ -76,7 +76,7 @@ Nanti akan muncul seperti ini di terminal
 
 Buka lagi sebuah terminal baru, dan jalankan server laravel. 
 ```
-php artisan server
+php artisan serve
 ```
 (npm run dev harus tetap berjalan di terminal lain) setelah itu hasil pada browser, tampilan awal laravel saat ini sudah dilengkapi dengan **login** dan **register**.
 
