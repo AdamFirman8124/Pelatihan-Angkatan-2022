@@ -198,6 +198,12 @@ return response()->view('produk.show',['produk' => $produk]);
 ## 5.1 View layouts\app.blade.php
 Tambahkan menu di **layouts\app.blade.php**, pada bagian **@auth ... @endauth**
 
+```
+<li class="nav-item">
+    <a class="nav-link" href="{{url('/produks')}}">Data Produk</a>
+</li>
+```
+
 ## 5.2 View produk\index.blade.php
 1. Buat view index.blade.php, letakkan di dalam folder views/produk. Demikian juga untuk view lainnya.
 
