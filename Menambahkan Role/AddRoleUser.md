@@ -86,7 +86,7 @@
         ];
     }
     ```
-3. Modefikasi Register Controller
+3. Modifikasi Register Controller
 
     Buka file RegisterController.php, kemudian tambahkan kode ini di bagian paling bawah class RegisterCOntroller:
     ```
