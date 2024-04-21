@@ -25,16 +25,11 @@ public function up(): void
     });
 }
 ```
-
-3. Lihat status migration. **php artisan migrate:status**. Ada satu yang pending yaitu create produks_table.
-
-4. Jalankan database server dari XAMPP
-
-5. Ketik perintah migrate pada terminal **php artisan migrate**.
+3. Ketik perintah migrate pada terminal **php artisan migrate**.
 
 ![alt text](https://github.com/AdamFirman8124/Pemateri/blob/main/Laravel%2010/assets/image-1.png)
 
-6. Periksa database, kini sudah ada tambahan tabel **produks**.
+4. Periksa database, kini sudah ada tambahan tabel **produks**.
 
 ![alt text](https://github.com/AdamFirman8124/Pemateri/blob/main/Laravel%2010/assets/image-2.png)
 
