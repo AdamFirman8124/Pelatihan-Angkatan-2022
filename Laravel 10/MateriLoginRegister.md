@@ -231,8 +231,6 @@ class User extends Authenticatable
 
 4. Pada views juga telah dibuatkan layout app.blade.php sebagai template utama, yang di extend oleh view('welcome') dan view('home').
 
-[TIP] Buka kembali tutorial tentang layout.
-
 5. Pada folder auth, terdapat file view login.blade.php, register.blade.php dan verify.blade.php. Anda tidak perlu melakukan modifikasi pada bagian ini.
 
 6. Di dalam folder auth ada lagi folder passwords yang berisi beberapa file view.
