@@ -360,3 +360,246 @@ public function store(Request $request)
 5. Coba lakukan proses penambahan data. dan lihat hasilnya.
 
 ## 5.4 View produk\show.blade.php
+
+Buat view **show.blade.php** letakkan di dalam folder viewa/produk seperti lainnya
+
+```
+@extends('layouts.app')
+@section('content')
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-12">
+
+            <div class="pt-4 d-flex justify-content-between align-items-center">
+                <h2>Info Produk {{$produk->nama_produk}}</h2>
+                <div class="d-flex">
+                    <a href="{{url('/produks/'.$produk->id.'/edit')}}" class="btn btn-primary">Edit</a>
+                    <form action="{{url('/produks/'.$produk->id)}}" method="POST">
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger ms-3">Hapus</button>
+                        @csrf
+                    </form>
+                </div>
+            </div>
+            <hr>
+
+            @if(session()->has('pesan'))
+                <div class="alert alert-success" role="alert">
+                    {{ session()->get('pesan')}}
+                </div>
+            @endif
+
+            <ul>
+            <li>Nama Produk: {{$produk->nama_produk}} </li>
+            <li>Deskripsi: {{$produk->deskripsi}} </li>
+            <li>Aturan Sewa: {{$produk->aturan_sewa}} </li>
+            <li>Image: <img src="{{ asset('img/'.$produk->image) }}" width="70px" height="70px" alt="Image"> </li>
+            </ul>
+        </div>
+    </div>
+</div>
+@endsection
+```
+
+## 5.5 View produk\edit.blade.php
+
+1. Buat view edit.blade.php
+
+```
+@extends('layouts.app')
+
+@section('content')
+<div class="container mt-3">
+<div class="row">
+    <div class="col-sm-8 col-md-6">
+    <h1 class="h2 pt-4">Edit Produk</h1>
+    <hr>
+
+    <form action="{{url('/produks/'.$produk->id)}}" method="POST" enctype="multipart/form-data">
+        @method('PUT')
+        @csrf
+        <div class="mb-3">
+        <label class="form-label" for="nama_produk">Nama produk</label>
+        <input type="text"
+        class="form-control @error('nama_produk') is-invalid @enderror"
+        id="nama_produk" name="nama_produk"
+        value="{{ old('idprod') ?? $produk->nama_produk }}">
+        @error('nama_produk')
+            <div class="text-danger">{{ $message }}</div>
+        @enderror
+        </div>
+
+        <div class="mb-3">
+        <label class="form-label" for="deskripsi">Deskripsi</label>
+        <input type="text"
+        class="form-control @error('deskripsi') is-invalid @enderror"
+        id="deskripsi" name="deskripsi"
+        value="{{ old('idprod') ?? $produk->deskripsi }}">
+        @error('deskripsi')
+            <div class="text-danger">{{ $message }}</div>
+        @enderror
+        </div>
+
+        <div class="mb-3">
+        <label class="form-label" for="aturan_sewa">
+            Aturan Sewa</label>
+        <input type="text"
+        class="form-control @error('aturan_sewa') is-invalid @enderror"
+        id="aturan_sewa" name="aturan_sewa"
+        value="{{ old('idprod') ?? $produk->aturan_sewa }}">
+        @error('aturan_sewa')
+            <div class="text-danger">{{ $message }}</div>
+        @enderror
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label" for="image">Image</label>
+            <input type="file" placeholder="Choose image" class="form-control @error('image') is-invalid @enderror" id="image" name="image" value="{{ old('idprod') ?? $produk->image }}">
+            <img src="{{ asset('img/'.$produk->image) }}" width="70px" height="70px" alt="Image">
+            @error('image')
+                <div class="text-danger">{{ $message }}</div>
+            @enderror
+        </div>
+
+        <button type="submit" class="btn btn-primary my-2">Update</button>
+    </form>
+
+    </div>
+</div>
+</div>
+@endsection
+```
+
+2. Modifikasi ProdukController pada bagian fungsi update.
+
+```
+// Tambahan untuk akses file
+use Illuminate\Support\Facades\File;
+
+public function update(Request $request, Produk $produk)
+{
+    $validateData = $request->validate([
+            'nama_produk'   => 'required',
+            'deskripsi' => 'required',
+            // 'aturan_sewa' => 'text',
+            'image' => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048'
+            // 'jumlah' => 'required|min:10|integer'
+    ]);
+    $validateData['aturan_sewa']=$request->aturan_sewa;
+    //Jika akan menghapus file lama.
+    // $produk = Produk::find($produk->id);
+    // Sebenarnya gak perlu cari karena sudah didefinisi di parameter
+
+    if($request->hasfile('image')){
+        $destination = 'img/'.$produk->image;
+        if(File::exists($destination))
+        {
+            File::delete($destination);
+        }
+        $file= $request->file('image');
+        $filename= date('YmdHi').$file->getClientOriginalName();
+        $file-> move(public_path('img'), $filename);
+        $validateData['image']=$filename;
+    }
+    $produk->update($validateData);
+    return redirect('/produks/'.$produk->id)->with('pesan',"Produk $produk->nama_produk berhasil diupdate");
+}
+```
+
+## 5.6 Delete Data
+
+Ubah Controller fungsi destroy untuk hapus file
+
+```
+    public function destroy(Produk $produk)
+    {
+        // Hapus file
+        if($produk->image){ //Cek dahulu apakah field ada isinya
+            $destination = 'img/'.$produk->image;
+            if(File::exists($destination)) // Cek apakah file ada di folder
+            {
+                File::delete($destination);
+            }
+        }
+
+        $produk->delete();
+        return redirect('/produks')->with('pesan',"Produk $produk->nama_produk berhasil dihapus");
+    }
+```
+
+# 6. View Data dengan Pagination
+1. Modifikasi Controller bagian index. https://laravel.com/docs/10.x/eloquent-resources#pagination
+
+```
+return response()->view('produk.index',['produks'=>Produk::paginate(2)]);
+```
+
+2. Modifikasi view produk/index.blade.php dengan menambahkan baris perintah ini setelah </table> </div>
+
+```
+<div class="d-flex justify-content-end">
+{{$produks->links()}}
+</div>
+```
+
+3. Gunakan bootstrap dengan modifikasi https://laravel.com/docs/10.x/pagination#using-bootstrap app\Providers\AppServiceProvider.php
+
+```
+use Illuminate\Pagination\Paginator;
+
+public function boot(): void
+{
+    Paginator::useBootstrapFive();
+    // Paginator::useBootstrapFour();
+}
+```
+
+4. Lihat Hasilnya
+
+# 7. View Data dengan Searching
+
+1. Modifikasi ***ProdukController.php** bagian index.
+
+```
+ // Tambahan untuk search, letakkan di tempat sperti lainnya
+ use Illuminate\Database\Eloquent\Builder; 
+
+// Jika menambah search, maka pada fungsi index menjadi
+ public function index(Request $request) //Tambahkan Request untuk search
+ {
+     //Baris ini mengarahkan ke folder produk, file index.blade.php
+ 	// return response()->view('produk.index',['produks'=>Produk::all()]);
+     // Pagination tanpa searching
+     // return response()->view('produk.index',['produks'=>Produk::paginate(2)]);
+
+     // Pagination dan searching
+     // Jika menambah search
+
+      $produks = Produk::query()
+        ->when(
+            $request->q,
+            function (Builder $builder) use ($request) {
+                $builder->where('nama_produk', 'like', "%{$request->q}%")
+                    ->orWhere('deskripsi', 'like', "%{$request->q}%");
+            }
+        )
+        ->paginate(2)->withQueryString();
+    return view('produk.index', compact('produks'));
+
+ }
+ ```
+
+ 2. Modifikasi View layouts/index.blade.php di atas <table> Letakkan di atas Tabel
+
+ ```
+         <form action="{{ url('/produks') }}" method="get">
+            <div class="row">
+                <div class="col-md-10">
+                    <input type="text" class="form-control mb-3" placeholder="search" name="q">
+                </div>
+                <div class="col-md-2">
+                    <input type="submit" class="form-control mb-3" value="Search">
+                </div>
+            </div>
+        </form>
+```
