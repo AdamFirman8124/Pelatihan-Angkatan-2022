@@ -27,11 +27,11 @@ public function index()
 }
 ```
 
-Step 4: Kemudian login, klik menu Data User, Lihat hasilnya.
+Step 4: Kemudian login, klik menu **Data User**, Lihat hasilnya.
 
 ![alt text](https://github.com/AdamFirman8124/Pemateri/blob/main/Laravel%2010/assets/image-15.png)
 
-Step 5: Selain menggunakan Auth, user yang sedang login juga dapat diketahui menggunakan facades Request. Pada UserController.php buat fungsi datauser().
+Step 5: Selain menggunakan Auth, user yang sedang login juga dapat diketahui menggunakan facades Request. Pada **UserController.php** buat fungsi datauser().
 
 ```
 public function dataUser(Request $request)
@@ -49,11 +49,11 @@ Step 6: Tambahkan sebuah route, di **web.php**
 Route::get('/user', [App\Http\Controllers\UserController::class, 'dataUser'])->name('user_-_data');
 ```
 
-Step 7: Lihat pada url /user-data dan lihat hasilnya.
+Step 7: Lihat pada url **/user-data** dan lihat hasilnya.
 
 ![alt text](https://github.com/AdamFirman8124/Pemateri/blob/main/Laravel%2010/assets/image-16.png)
 
-Step 8: Lanjutkan membuat file user.blade.php di dalam file **resources\views**, isinya sebagai berikut.
+Step 8: Lanjutkan membuat file **user.blade.php** di dalam file **resources\views**, isinya sebagai berikut.
 
 ```
 @extends('layouts.app')
@@ -77,7 +77,7 @@ Step 8: Lanjutkan membuat file user.blade.php di dalam file **resources\views**,
 @endsection
 ```
 
-Step 9: Modifikasi fungsi dataUser pada UserController.
+Step 9: Modifikasi fungsi dataUser pada **UserController.php**.
 
 ```
 public function dataUser(Request $request)

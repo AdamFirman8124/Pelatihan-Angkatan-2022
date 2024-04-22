@@ -82,7 +82,7 @@ php artisan serve
 
 ![alt text](https://github.com/AdamFirman8124/Pemateri/blob/main/Laravel%2010/assets/image-12.png)
 
-Sampai sesi ini, antarmuka sudah jalan. Pada windows, kedua perintah harus dijalankan. (npm run dev) dan (php artisan serve).
+Sampai sesi ini, antarmuka sudah jalan. Pada windows, kedua perintah harus dijalankan. **(npm run dev)** dan **(php artisan serve)**.
 
 # Jika terdapat error dibagian SQL nya contoh seperti ini:
 
