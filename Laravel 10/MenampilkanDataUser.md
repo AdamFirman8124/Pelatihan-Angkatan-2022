@@ -43,10 +43,10 @@ echo $request->user()->password."<br>";
 }
 ```
 
-Step 6: Tambahkan sebuah route.
+Step 6: Tambahkan sebuah route, di **web.php**
 
 ```
-Route::get('/user-data', [App\Http\Controllers\UserController::class, 'dataUser'])->name('user_-_data');
+Route::get('/user', [App\Http\Controllers\UserController::class, 'dataUser'])->name('user_-_data');
 ```
 
 Step 7: Lihat pada url /user-data dan lihat hasilnya.
