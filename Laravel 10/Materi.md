@@ -51,12 +51,7 @@ Hapus titik koma (;) pada bagian kanannya "extension=zip", Sehingga jadi seperti
 
 Kemudian Save file lalu close.
 
-Setelah itu, jalankan kembali kode ini di Command Prompt:
-
-```
-cd C:\xampp\htdocs
-```
-Lalu jalankan kode ini:
+Jalankan kembali kode ini:
 ```
 composer create-project laravel/laravel:^10.0 example-app
 ```
